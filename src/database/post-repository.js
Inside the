@@ -1,0 +1,58 @@
+import { getSupabase } from "../config/supabase.js";
+
+const POST_FIELDS = [
+  "id",
+  "author_id",
+  "content",
+  "post_type",
+  "media_urls",
+  "visibility",
+  "created_at"
+].join(", ");
+
+export async function findPostById(postId) {
+  if (!postId) {
+    throw new Error("A post ID is required.");
+  }
+
+  const supabase = getSupabase();
+
+  const { data, error } = await supabase
+    .from("posts")
+    .select(POST_FIELDS)
+    .eq("id", postId)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(`Unable to retrieve post: ${error.message}`);
+  }
+
+  return data;
+}
+
+export async function getPublicFeed({ limit = 20, offset = 0 } = {}) {
+  const safeLimit = Math.min(
+    Math.max(Number.parseInt(limit, 10) || 20, 1),
+    100
+  );
+
+  const safeOffset = Math.max(
+    Number.parseInt(offset, 10) || 0,
+    0
+  );
+
+  const supabase = getSupabase();
+
+  const { data, error } = await supabase
+    .from("posts")
+    .select(POST_FIELDS)
+    .eq("visibility", "public")
+    .order("created_at", { ascending: false })
+    .range(safeOffset, safeOffset + safeLimit - 1);
+
+  if (error) {
+    throw new Error(`Unable to retrieve feed: ${error.message}`);
+  }
+
+  return data ?? [];
+}
