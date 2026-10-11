@@ -1,0 +1,34 @@
+CREATE TABLE IF NOT EXISTS public.posts (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+
+    author_id UUID NOT NULL
+        REFERENCES public.profiles(id) ON DELETE CASCADE,
+
+    content TEXT NOT NULL DEFAULT '',
+
+    post_type TEXT NOT NULL DEFAULT 'text'
+        CHECK (post_type IN ('text', 'photo', 'video')),
+
+    media_urls TEXT[] NOT NULL DEFAULT '{}',
+
+    visibility TEXT NOT NULL DEFAULT 'public'
+        CHECK (visibility IN ('public', 'friends', 'private')),
+
+    status TEXT NOT NULL DEFAULT 'active'
+        CHECK (status IN ('active', 'hidden', 'removed')),
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    CONSTRAINT post_content_length
+        CHECK (char_length(content) <= 5000)
+);
+
+CREATE INDEX IF NOT EXISTS posts_author_created_idx
+    ON public.posts (author_id, created_at DESC);
+
+CREATE INDEX IF NOT EXISTS posts_public_feed_idx
+    ON public.posts (created_at DESC)
+    WHERE visibility = 'public' AND status = 'active';
+
+ALTER TABLE public.posts ENABLE ROW LEVEL SECURITY;
