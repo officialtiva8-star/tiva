@@ -1,21 +1,24 @@
 {
-  "name": "tiva",
+  "name": "tiva-api",
   "version": "1.0.0",
   "private": true,
-  "description": "TIVA Global Social Media Platform",
   "type": "module",
-  "main": "src/server.js",
-  "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
-  },
+  "description": "TIVA Global Social Media Platform API",
   "engines": {
     "node": ">=20"
   },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "check": "node --check src/server.js && node --check src/app.js"
+  },
   "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.6.1",
     "express": "^5.1.0",
-    "helmet": "^8.1.0"
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "zod": "^4.1.5"
   }
 }
