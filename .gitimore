@@ -1,28 +1,8 @@
-# Environment secrets
+node_modules/
 .env
 .env.*
 !.env.example
-
-# Dependencies
-node_modules/
-
-# Logs
-logs/
-*.log
 npm-debug.log*
-
-# Operating system
 .DS_Store
-Thumbs.db
-
-# Editor settings
-.vscode/
-.idea/
-
-# Build output
+coverage/
 dist/
-build/
-
-# Temporary files
-tmp/
-temp/
