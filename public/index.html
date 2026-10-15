@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="TIVA — Meet, Connect, Share and Live."
+  >
+
+  <meta name="theme-color" content="#080d19">
+
+  <title>TIVA — Meet, Connect, Share, Live</title>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-logo">T</div>
+    <h1>TIVA</h1>
+    <p>Meet • Connect • Share • Live</p>
+  </div>
+
+  <!-- AUTHENTICATION SCREEN -->
+  <section id="auth-screen" class="auth-screen hidden">
+
+    <div class="auth-brand">
+      <div class="brand-symbol">T</div>
+      <h1>TIVA</h1>
+      <p>Meet • Connect • Share • Live</p>
+    </div>
+
+    <div class="auth-card">
+
+      <h2 id="auth-title">Welcome to TIVA</h2>
+
+      <p id="auth-description">
+        Connect with people around the world.
+      </p>
+
+      <form id="login-form">
+
+        <label for="login-email">Email address</label>
+
+        <input
+          id="login-email"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="login-password">Password</label>
+
+        <input
+          id="login-password"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          minlength="8"
+          required
+        >
+
+        <button type="submit" class="primary-button">
+          Log In
+        </button>
+
+      </form>
+
+      <button
+        id="google-login"
+        class="secondary-button"
+        type="button"
+      >
+        Continue with Google
+      </button>
+
+      <p class="auth-switch">
+        New to TIVA?
+        <button id="show-register" class="text-button">
+          Create account
+        </button>
+      </p>
+
+      <p id="auth-message" class="message" role="status"></p>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN APPLICATION -->
+  <div id="app" class="app hidden">
+
+    <!-- TOP HEADER -->
+    <header class="topbar">
+
+      <a href="#" class="brand" aria-label="TIVA Home">
+        <span class="brand-symbol">T</span>
+        <span class="brand-name">TIVA</span>
+      </a>
+
+      <div class="search-box">
+        <span>⌕</span>
+
+        <input
+          id="global-search"
+          type="search"
+          placeholder="Search people and posts..."
+          aria-label="Search TIVA"
+        >
+      </div>
+
+      <div class="header-actions">
+
+        <button
+          class="icon-button"
+          data-page="wallet"
+          aria-label="Wallet"
+        >
+          ♛
+        </button>
+
+        <button
+          class="icon-button"
+          data-page="notifications"
+          aria-label="Notifications"
+        >
+          ♧
+          <span class="notification-dot"></span>
+        </button>
+
+        <button
+          class="icon-button"
+          data-page="messages"
+          aria-label="Messages"
+        >
+          ✉
+        </button>
+
+        <button
+          id="profile-menu-button"
+          class="profile-button"
+          aria-label="Open profile menu"
+        >
+          <span id="header-avatar" class="avatar">T</span>
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+
+        <div class="sidebar-user">
+          <div id="sidebar-avatar" class="avatar large">T</div>
+
+          <div>
+            <strong id="sidebar-name">TIVA Member</strong>
+            <span id="sidebar-username">@member</span>
+          </div>
+        </div>
+
+        <nav class="main-navigation" aria-label="Main navigation">
+
+          <button class="nav-item active" data-page="home">
+            <span>⌂</span> Home
+          </button>
+
+          <button class="nav-item" data-page="explore">
+            <span>⌕</span> Explore
+          </button>
+
+          <button class="nav-item" data-page="party">
+            <span>🎙</span> Join Party
+          </button>
+
+          <button class="nav-item" data-page="live">
+            <span>●</span> Join Live
+            <span class="live-label">LIVE</span>
+          </button>
+
+          <button class="nav-item" data-page="messages">
+            <span>✉</span> Messages
+          </button>
+
+          <button class="nav-item" data-page="notifications">
+            <span>♧</span> Notifications
+          </button>
+
+          <button class="nav-item" data-page="create">
+            <span>＋</span> Create Post
+          </button>
+
+          <button class="nav-item" data-page="profile">
+            <span>♙</span> My Profile
+          </button>
+
+          <button class="nav-item" data-page="friends">
+            <span>♧</span> Friends
+          </button>
+
+          <button class="nav-item" data-page="following">
+            <span>♡</span> Following
+          </button>
+
+          <button class="nav-item" data-page="saved">
+            <span>▣</span> Saved
+          </button>
+
+          <button class="nav-item" data-page="wallet">
+            <span>🪙</span> My Wallet
+          </button>
+
+          <button class="nav-item" data-page="settings">
+            <span>⚙</span> Settings
+          </button>
+
+          <button class="nav-item" data-page="help">
+            <span>?</span> Help & Support
+          </button>
+
+        </nav>
+
+        <div class="sidebar-footer">
+          <span>© 2026 TIVA</span>
+          <span>Meet • Connect • Share • Live</span>
+        </div>
+
+      </aside>
+
+      <!-- CENTER CONTENT -->
+      <main class="main-content">
+
+        <!-- HOME PAGE -->
+        <section id="page-home" class="page">
+
+          <div class="welcome-card">
+
+            <div>
+              <span class="eyebrow">YOUR GLOBAL COMMUNITY</span>
+
+              <h1>Welcome to TIVA</h1>
+
+              <p>
+                Meet new people, share your moments
+                and discover your world.
+              </p>
+
+              <button class="primary-button" data-page="explore">
+                Explore TIVA
+              </button>
+            </div>
+
+            <div class="welcome-decoration">T</div>
+
+          </div>
+
+          <!-- STORIES -->
+          <section class="content-card">
+
+            <div class="section-heading">
+              <div>
+                <h2>Stories</h2>
+                <p>Moments disappear after 24 hours.</p>
+              </div>
+
+              <button class="text-button" data-page="create">
+                Create story +
+              </button>
+            </div>
+
+            <div id="stories-list" class="stories-list">
+
+              <button class="story-item create-story" data-page="create">
+                <span class="story-avatar">＋</span>
+                <span>Your story</span>
+              </button>
+
+            </div>
+
+          </section>
+
+          <!-- CREATE POST -->
+          <section class="content-card create-post-card">
+
+            <div class="section-heading">
+              <h2>Share something</h2>
+            </div>
+
+            <form id="post-form">
+
+              <textarea
+                id="post-content"
+                placeholder="What's happening in your world?"
+                rows="3"
+                maxlength="5000"
+              ></textarea>
+
+              <div class="post-form-bottom">
+
+                <label class="select-label" for="post-audience">
+                  Audience
+                </label>
+
+                <select id="post-audience">
+                  <option value="public">Public</option>
+                  <option value="friends">Friends</option>
+                  <option value="only_me">Only me</option>
+                </select>
+
+                <button type="submit" class="primary-button">
+                  Publish
+                </button>
+
+              </div>
+
+            </form>
+
+            <p id="post-message" class="message" role="status"></p>
+
+          </section>
+
+          <!-- FEED -->
+          <section class="feed-section">
+
+            <div class="section-heading feed-heading">
+              <div>
+                <h2>Your Feed</h2>
+                <p>Discover what's happening.</p>
+              </div>
+
+              <button id="refresh-feed" class="secondary-button">
+                Refresh
+              </button>
+            </div>
+
+            <div id="feed-list">
+
+              <div class="empty-state">
+                <div class="empty-icon">✦</div>
+                <h3>Your community starts here</h3>
+                <p>
+                  Posts will appear here when the feed
+                  is connected to your TIVA backend.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </section>
+
+        <!-- EXPLORE PAGE -->
+        <section id="page-explore" class="page hidden">
+          <div class="page-heading">
+            <h1>Explore</h1>
+            <p>Discover people and communities around the world.</p>
+          </div>
+
+          <div class="content-card">
+            <h2>Discover TIVA</h2>
+            <p>
+              The discovery feed will appear here when
+              connected to the backend.
+            </p>
+          </div>
+        </section>
+
+        <!-- PARTY PAGE -->
+        <section id="page-party" class="page hidden">
+          <div class="page-heading">
+            <h1>Audio Parties</h1>
+            <p>Talk, connect and share conversations.</p>
+          </div>
+
+          <div class="content-card">
+            <div class="feature-icon">🎙</div>
+            <h2>Find your people</h2>
+            <p>
+              Audio rooms, speaker requests and host
+              controls will be connected in a later stage.
+            </p>
+            <button class="primary-button" disabled>
+              Audio parties coming soon
+            </button>
+          </div>
+        </section>
+
+        <!-- LIVE PAGE -->
+        <section id="page-live" class="page hidden">
+          <div class="page-heading">
+            <h1>Join Live</h1>
+            <p>Watch creators and join live conversations.</p>
+          </div>
+
+          <div class="content-card">
+            <div class="feature-icon">●</div>
+            <h2>Live video</h2>
+            <p>
+              Live rooms, participation requests and
+              live matches will be connected later.
+            </p>
+            <button class="primary-button" disabled>
+              Live video coming soon
+            </button>
+          </div>
+        </section>
+
+        <!-- PROFILE PAGE -->
+        <section id="page-profile" class="page hidden">
+          <div class="page-heading">
+            <h1>My Profile</h1>
+            <p>Manage your identity on TIVA.</p>
+          </div>
+
+          <div class="content-card profile-card">
+            <div id="profile-avatar" class="avatar profile-avatar">T</div>
+            <h2 id="profile-display-name">TIVA Member</h2>
+            <p id="profile-username">@member</p>
+            <p id="profile-bio">Welcome to my TIVA profile.</p>
+          </div>
+        </section>
+
+        <!-- FRIENDS PAGE -->
+        <section id="page-friends" class="page hidden">
+          <div class="page-heading">
+            <h1>Friends</h1>
+            <p>Manage your connections and friend requests.</p>
+          </div>
+
+          <div class="content-card">
+            <h2>Your friendships</h2>
+            <p>Friends and requests will appear here.</p>
+          </div>
+        </section>
+
+        <!-- FOLLOWING PAGE -->
+        <section id="page-following" class="page hidden">
+          <div class="page-heading">
+            <h1>Following</h1>
+            <p>People you choose to follow.</p>
+          </div>
+
+          <div class="content-card">
+            <p>Your following list will appear here.</p>
+          </div>
+        </section>
+
+        <!-- SAVED PAGE -->
+        <section id="page-saved" class="page hidden">
+          <div class="page-heading">
+            <h1>Saved</h1>
+            <p>Find posts you've saved for later.</p>
+          </div>
+
+          <div class="content-card">
+            <p>Your saved posts will appear here.</p>
+          </div>
+        </section>
+
+        <!-- MESSAGES PAGE -->
+        <section id="page-messages" class="page hidden">
+          <div class="page-heading">
+            <h1>Messages</h1>
+            <p>Connect privately with your friends.</p>
+          </div>
+
+          <div class="content-card">
+            <h2>Your conversations</h2>
+            <p>
+              Private messaging will be connected
+              after the messaging backend is ready.
+            </p>
+          </div>
+        </section>
+
+        <!-- NOTIFICATIONS PAGE -->
+        <section id="page-notifications" class="page hidden">
+          <div class="page-heading">
+            <h1>Notifications</h1>
+            <p>Keep up with activity on TIVA.</p>
+          </div>
+
+          <div class="content-card">
+            <p>Your notifications will appear here.</p>
+          </div>
+        </section>
+
+        <!-- WALLET PAGE -->
+        <section id="page-wallet" class="page hidden">
+
+          <div class="page-heading">
+            <h1>My Wallet</h1>
+            <p>Manage your TIVA coins and creator earnings.</p>
+          </div>
+
+          <div class="wallet-grid">
+
+            <div class="wallet-card coin-wallet">
+              <span class="wallet-label">COIN BALANCE</span>
+              <div id="coin-balance" class="wallet-amount">0</div>
+              <p>TIVA Coins</p>
+              <button
+                class="primary-button"
+                data-wallet-action="buy"
+              >
+                Buy Coins
+              </button>
+            </div>
+
+            <div class="wallet-card earnings-wallet">
+              <span class="wallet-label">CREATOR EARNINGS</span>
+              <div id="creator-earnings" class="wallet-amount">
+                $0.00
+              </div>
+              <p>USD</p>
+              <button
+                class="secondary-button"
+                data-wallet-action="earnings"
+              >
+                View Earnings
+              </button>
+            </div>
+
+          </div>
+
+          <div class="content-card">
+            <h2>Recent Transactions</h2>
+            <div id="transactions-list">
+              <p>No transactions to display yet.</p>
+            </div>
+          </div>
+
+          <p class="wallet-disclaimer">
+            Balances and payments will be displayed from
+            verified backend records once connected.
+          </p>
+
+        </section>
+
+        <!-- CREATE PAGE -->
+        <section id="page-create" class="page hidden">
+          <div class="page-heading">
+            <h1>Create</h1>
+            <p>Share a moment with your TIVA community.</p>
+          </div>
+
+          <div class="content-card">
+            <h2>Create a post</h2>
+
+            <p>
+              Use the post composer on your home page.
+              Photo and video uploads will be added later.
+            </p>
+
+            <button class="primary-button" data-page="home">
+              Go to Post Composer
+            </button>
+          </div>
+        </section>
+
+        <!-- SETTINGS PAGE -->
+        <section id="page-settings" class="page hidden">
+          <div class="page-heading">
+            <h1>Settings</h1>
+            <p>Manage your account and privacy.</p>
+          </div>
+
+          <div class="content-card">
+            <h2>Account settings</h2>
+            <p>
+              Account security, privacy controls and
+              notification preferences will be added here.
+            </p>
+          </div>
+        </section>
+
+        <!-- HELP PAGE -->
+        <section id="page-help" class="page hidden">
+          <div class="page-heading">
+            <h1>Help & Support</h1>
+            <p>Get assistance with your TIVA account.</p>
+          </div>
+
+          <div class="content-card">
+            <h2>How can we help?</h2>
+            <p>
+              Support requests and help articles will
+              be connected later.
+            </p>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="right-sidebar">
+
+        <div class="content-card mini-wallet">
+          <div class="section-heading">
+            <h2>Your Wallet</h2>
+            <span>🪙</span>
+          </div>
+
+          <p class="muted">Available coins</p>
+          <div id="mini-coin-balance" class="mini-balance">0</div>
+
+          <button
+            class="primary-button full-width"
+            data-page="wallet"
+          >
+            Open Wallet
+          </button>
+        </div>
+
+        <div class="content-card">
+          <div class="section-heading">
+            <h2>Discover</h2>
+          </div>
+
+          <p class="muted">
+            Meet people and explore your community.
+          </p>
+
+          <button
+            class="secondary-button full-width"
+            data-page="explore"
+          >
+            Explore People
+          </button>
+        </div>
+
+        <div class="content-card">
+          <h2>About TIVA</h2>
+
+          <p class="muted">
+            A place to meet, connect, share and live
+            with people around the world.
+          </p>
+
+          <div class="brand-tagline">
+            MEET • CONNECT • SHARE • LIVE
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-navigation" aria-label="Mobile navigation">
+
+      <button data-page="home" class="mobile-nav-item active">
+        <span>⌂</span>
+        <small>Home</small>
+      </button>
+
+      <button data-page="explore" class="mobile-nav-item">
+        <span>⌕</span>
+        <small>Explore</small>
+      </button>
+
+      <button data-page="create" class="mobile-nav-item create-nav">
+        <span>＋</span>
+        <small>Create</small>
+      </button>
+
+      <button data-page="messages" class="mobile-nav-item">
+        <span>✉</span>
+        <small>Messages</small>
+      </button>
+
+      <button data-page="profile" class="mobile-nav-item">
+        <span>♙</span>
+        <small>Profile</small>
+      </button>
+
+    </nav>
+
+  </div>
+
+  <!-- FRONTEND JAVASCRIPT -->
+  <script type="module" src="/app.js"></script>
+
+</body>
+</html>
