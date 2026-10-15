@@ -20,7 +20,7 @@ const SUPABASE_ANON_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
 * Leave this as a placeholder until your backend is hosted.
 * Later, replace it with your actual Render API URL.
   */
-  const API_BASE_URL = "YOUR_RENDER_BACKEND_URL";
+  const API_BASE_URL = "https://tiva-api.onrender.com";
 
 let supabase = null;
 let currentUser = null;
