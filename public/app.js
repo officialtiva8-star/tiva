@@ -602,13 +602,7 @@ if (walletButton) {
 }
 
 if (event.target.closest("#profile-menu-button")) {
-  if (
-    window.confirm(
-      "Would you like to log out of TIVA?"
-    )
-  ) {
-    handleLogout();
-  }
+  handleLogout();
 }
 
 });
