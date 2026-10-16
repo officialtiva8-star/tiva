@@ -325,7 +325,13 @@ const feed = $("#feed-list");
 feed.replaceChildren();
 
 if (!posts.length) {
-feed.innerHTML = "<div class="empty-state"> <div class="empty-icon">✦</div> <h3>No posts yet</h3> <p>Be the first to share something on TIVA.</p> </div>";
+feed.innerHTML = `
+  <div class="empty-state">
+    <div class="empty-icon">✦</div>
+    <h3>No posts yet</h3>
+    <p>Be the first to share something on TIVA.</p>
+  </div>
+`;
 
 return;
 
