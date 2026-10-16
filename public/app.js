@@ -258,7 +258,13 @@ if (!feed) return;
 if (!supabase || !currentUser) return;
 
 if (!backendIsReady()) {
-feed.innerHTML = "<div class="empty-state"> <div class="empty-icon">✦</div> <h3>Your TIVA feed is ready for connection</h3> <p> Configure the backend URL to load posts from the TIVA API. </p> </div>";
+feed.innerHTML = `
+  <div class="empty-state">
+    <div class="empty-icon">✦</div>
+    <h3>Your TIVA feed is ready for connection</h3>
+    <p>Configure the backend URL to load posts from the TIVA API.</p>
+  </div>
+`;
 
 return;
 
