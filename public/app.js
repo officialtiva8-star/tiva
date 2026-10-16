@@ -85,7 +85,7 @@ navigateTo("home");
 }
 
 function navigateTo(page) {
-const target = document.querySelector("#page-${page}");
+const target = document.querySelector(`#page-${page}`);                  
 
 if (!target) return;
 
