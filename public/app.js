@@ -154,7 +154,7 @@ $("#sidebar-avatar").textContent = avatarLetter;
 $("#profile-avatar").textContent = avatarLetter;
 
 $("#profile-display-name").textContent = displayName;
-$("#profile-username").textContent = "@${username}";
+$("#profile-username").textContent = `@${username}`;
 
 $("#profile-bio").textContent =
 profile?.bio || "Welcome to my TIVA profile.";
