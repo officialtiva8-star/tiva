@@ -270,7 +270,11 @@ return;
 
 }
 
-feed.innerHTML = "<div class="empty-state"> <p>Loading your feed...</p> </div>";
+feed.innerHTML = `
+  <div class="empty-state">
+    <p>Loading your feed...</p>
+  </div>
+`;
 
 try {
 const { data } = await supabase.auth.getSession();
