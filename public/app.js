@@ -147,7 +147,7 @@ const avatarLetter =
 displayName.trim().charAt(0).toUpperCase() || "T";
 
 $("#sidebar-name").textContent = displayName;
-$("#sidebar-username").textContent = "@${username}";
+$("#sidebar-username").textContent = `@${username}`;
 
 $("#header-avatar").textContent = avatarLetter;
 $("#sidebar-avatar").textContent = avatarLetter;
